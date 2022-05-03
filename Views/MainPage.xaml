@@ -1,0 +1,56 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="MobileInfoTools.MainPage"
+             NavigationPage.HasNavigationBar="False">
+
+    <StackLayout>
+        <Label Text="Liste des rendez-vous" FontSize="24" FontAttributes="Bold" Margin="5"/>
+        <ListView ItemsSource="{Binding Items}" x:Name="myListView" SelectedItem="{Binding SelectedItem}" HasUnevenRows="True">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <ViewCell.View>
+
+                            <Grid Margin="0,0,0,30" >
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="*" />
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+
+                                <StackLayout Margin="10,5,0,5" Orientation="Horizontal">
+                                    <StackLayout Orientation="Horizontal">
+                                            <Label Text="Id RDV: " FontAttributes="Bold"/>
+                                            <Label Text="{Binding IdRDV}" TextColor="#172b4d" FontAttributes="Bold"/>
+                                        </StackLayout>
+                                        <StackLayout Orientation="Horizontal">
+                                            <Label Text="Date: " FontAttributes="Bold"/>
+                                            <Label Text="{Binding DateRDV}" TextColor="#172b4d" FontAttributes="Bold"/>
+                                        </StackLayout>
+                                </StackLayout>
+
+                                <StackLayout Margin="10,0,0,5" Orientation="Horizontal" Grid.Row="1">
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Client: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding Client}" TextColor="#172b4d" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Label Text="Commercial: " FontAttributes="Bold"/>
+                                        <Label Text="{Binding Commercial}" TextColor="#172b4d" FontAttributes="Bold"/>
+                                    </StackLayout>
+                                </StackLayout>
+                            </Grid>
+                        </ViewCell.View>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="Ajouter" Command="{Binding NavigateToAddCommand}"/>
+        <Button Text="Editer" Command="{Binding NavigateToEditCommand}"/>
+        <Button Text="Supprimer" Command="{Binding DeleteItemCommand}"/>
+    </StackLayout>
+
+</ContentPage>

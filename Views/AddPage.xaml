@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:controls="clr-namespace:MobileInfoTools.Controls"
+             mc:Ignorable="d"
+             x:Class="MobileInfoTools.Views.AddPage"
+             NavigationPage.HasNavigationBar="False">
+    <StackLayout>
+        <Label Text="Ajouter un rendez-vous" FontSize="24" FontAttributes="Bold"/>
+        <controls:DateTimePicker DateTime="{Binding NewItem.DateRDV, Mode=TwoWay}"/>
+        <Picker ItemsSource="{Binding ListClients}" SelectedItem="{Binding Path=NewItem.Client, Mode=TwoWay}"/>
+        <Picker ItemsSource="{Binding ListCommerciaux}" SelectedItem="{Binding Path=NewItem.Commercial, Mode=TwoWay}" />
+
+        <Button Text="Ajouter rdv" Command="{Binding AddItemCommand}"/>
+        <Button Text="Retour" Command="{Binding NavigateToMainCommand}"/>
+    </StackLayout>
+</ContentPage>
