@@ -9,7 +9,8 @@
     <StackLayout>
         <Label Text="Editer un rendez-vous" FontSize="24" FontAttributes="Bold"/>
         <controls:DateTimePicker DateTime="{Binding SelectedItem.DateRDV, Mode=TwoWay}"/>
-        <controls:BindablePicker x:Name="pickerClient" ItemsSource="{Binding ListClients}" SelectedItem="{Binding Path=SelectedItem.Client}" />
+        <Picker x:Name="pickrClient" ItemsSource="{Binding ListClients}" SelectedItem="{Binding Path=SelectedItem}" ItemDisplayBinding="{Binding Client}" IsVisible="False"/>
+        <controls:BindablePicker x:Name="pickerClient" ItemsSource="{Binding ListClients}" SelectedItem="{Binding Path=SelectedItem.Client}"/>
         <controls:BindablePicker x:Name="pickerCommercial" ItemsSource="{Binding ListCommerciaux}" SelectedItem="{Binding Path=SelectedItem.Commercial}" />
 
         <Button Text="Editer rdv" Command="{Binding EditItemCommand}"/>
